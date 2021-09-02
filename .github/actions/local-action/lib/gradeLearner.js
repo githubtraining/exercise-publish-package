@@ -1,14 +1,36 @@
 const github = require("@actions/github");
 const core = require("@actions/core");
+const {spawnSync} = require('child_process')
 
 module.exports = async () => {
-  const token = core.getInput("token");
-  const octokit = github.getOctokit(token);
+  // const token = core.getInput("github-token");
+  // const octokit = github.getOctokit(token);
+  // const {owner,repo, full_name} = github.context.repo
+  const eventContext = core.getInput("event_ctx")
+  const eventContextJSON = JSON.parse(eventContext)
+  const packageURL = eventContextJSON.package.package_version.source_url
+  
 
   try {
     //   Do some logic to verify the leaner understands
 
-    if (GOOD - RESULT) {
+    // TODO: run this query for all possible package types, aggregate results in an array to check count
+    // TODO: repeat this query for orgs
+    // const userPackages = await octokit.rest.packages.listPackagesForUser({
+    //   package_type: "container",
+    //   username: owner
+    // })
+    // const userPackageNames = userPackages.data.map(pkg=>pkg.name)
+    // console.log(userPackageNames)
+
+    // check if our repo package name is in the userPackageNames array
+    // for (const name of userPackageNames){
+      // if name == what we want
+    // }
+    const result = spawnSync("docker", ["pull",packageURL], { cwd: dir })
+
+
+    if (result.status == 0) {
       return {
         reports: [
           {
@@ -36,7 +58,7 @@ module.exports = async () => {
             msg: `incorrect solution`,
             error: {
               expected: "What we expecrted",
-              got: `What we got`,
+              got: `${status.stderr.toString()}`,
             },
           },
         ],

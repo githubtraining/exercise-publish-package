@@ -1,9 +1,13 @@
 name: Grading workflow
-on: push
+
+on: 
+  registry_package:
+    types: [published]
+  workflow_dispatch:
 
 jobs:
   grade-learner:
-    if: github.event_name == 'push' # Apply additional filters as needed
+    if: github.event_name == 'registry_package' # Apply additional filters as needed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,6 +17,7 @@ jobs:
         uses: ./.github/actions/local-action
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
+          event_ctx: ${{toJSON(github.event)}}
 
       - name: Grading results
         uses: githubtraining/looking-glass-action@v1.0.0
