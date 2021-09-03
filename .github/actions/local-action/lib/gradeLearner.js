@@ -45,7 +45,7 @@ module.exports = async () => {
       //   break;
       default:
         throw new Error(
-          `Unsupported package type: ${eventContextJSON.package.package_version.package_type}`
+          `Unsupported package type: ${eventContextJSON.package.package_type}`
         );
     }
 
