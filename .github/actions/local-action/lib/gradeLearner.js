@@ -1,34 +1,53 @@
 const github = require("@actions/github");
 const core = require("@actions/core");
-const {spawnSync} = require('child_process')
+const { spawnSync } = require("child_process");
 
 module.exports = async () => {
-  // const token = core.getInput("github-token");
-  // const octokit = github.getOctokit(token);
-  // const {owner,repo, full_name} = github.context.repo
-  const eventContext = core.getInput("event_ctx")
-  const eventContextJSON = JSON.parse(eventContext)
-  const packageURL = eventContextJSON.package.package_version.source_url
-  
+  const { owner } = github.context.repo;
+  const eventContext = core.getInput("event_ctx");
+  const eventContextJSON = JSON.parse(eventContext);
+  const packageURL = eventContextJSON.package.package_version.source_url;
+  const packageName = eventContextJSON.package.name;
+  const packageVersion = eventContextJSON.package.package_version.version;
 
   try {
-    //   Do some logic to verify the leaner understands
+    let result;
 
-    // TODO: run this query for all possible package types, aggregate results in an array to check count
-    // TODO: repeat this query for orgs
-    // const userPackages = await octokit.rest.packages.listPackagesForUser({
-    //   package_type: "container",
-    //   username: owner
-    // })
-    // const userPackageNames = userPackages.data.map(pkg=>pkg.name)
-    // console.log(userPackageNames)
-
-    // check if our repo package name is in the userPackageNames array
-    // for (const name of userPackageNames){
-      // if name == what we want
-    // }
-    const result = spawnSync("docker", ["pull",packageURL], { cwd: dir })
-
+    switch (eventContextJSON.package.package_type) {
+      case "npm":
+        result = spawnSync(
+          "npm",
+          ["install", `${owner}/${packageName}@${packageVersion}`],
+          { cwd: dir }
+        );
+        break;
+      case "rubygems":
+        result = spawnSync(
+          "gem",
+          ["install", packageName, `--source ${packageURL}`],
+          { cwd: dir }
+        );
+        break;
+      case "docker":
+      case "container":
+        result = spawnSync("docker", ["pull", packageURL], {
+          cwd: dir,
+        });
+      // case "maven":
+      //   result = spawnSync("some",["maven","magic"]);
+      //   break;
+      // case "nuget":
+      //   result = spawnSync(
+      //     "dotnet",
+      //     ["add", "package", `${packageName}`, `-s ${packageURL}`],
+      //     { cwd: dir }
+      //   );
+      //   break;
+      default:
+        throw new Error(
+          `Unsupported package type: ${eventContextJSON.package.package_version.package_type}`
+        );
+    }
 
     if (result.status == 0) {
       return {
@@ -57,8 +76,9 @@ module.exports = async () => {
             level: "warning",
             msg: `incorrect solution`,
             error: {
-              expected: "What we expecrted",
-              got: `${status.stderr.toString()}`,
+              expected:
+                "We expected successful access to your package using the peroper CLI tool.",
+              got: `${result.stderr.toString()}`,
             },
           },
         ],
@@ -75,7 +95,7 @@ module.exports = async () => {
           msg: "",
           error: {
             expected: "",
-            got: "An internal error occurred.  Please open an issue at: https://github.com/githubtraining/exercise-remove-commit-history and let us know!  Thank you",
+            got: "An internal error occurred.  Please open an issue at: https://github.com/githubtraining/exercise-publish-package and let us know!  Thank you",
           },
         },
       ],

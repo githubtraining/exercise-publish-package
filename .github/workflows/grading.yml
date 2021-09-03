@@ -1,6 +1,6 @@
 name: Grading workflow
 
-on: 
+on:
   registry_package:
     types: [published]
   workflow_dispatch:
@@ -16,7 +16,6 @@ jobs:
         id: events
         uses: ./.github/actions/local-action
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           event_ctx: ${{toJSON(github.event)}}
 
       - name: Grading results
