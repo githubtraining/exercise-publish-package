@@ -1,6 +1,6 @@
 # Welcome to the exercise-publish-package exercise!
 
-This exercise checks FILL THIS IN. It is automatically graded via a workflow once you have completed the instructions.
+This exercise checks your ability to publish packages to GitHub Packages. It is automatically graded via a workflow once you have completed the instructions.
 
 ## About this exercise
 
@@ -17,9 +17,7 @@ This exercise checks FILL THIS IN. It is automatically graded via a workflow onc
 Please complete the instructions below:
 
 1. Create your own copy of this repository by using the [Use this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) button.
-2. Remove all references to the `.env` file which contains sensitive data from the repository.
-
-You do not need to contact GitHub Support to remove cached commits and complete this exercise.
+2. Publish a package of your choice. Ensure the package is associated with this repository. 
 
 <!-- Add your steps below starting with step 2 -->
 
@@ -32,17 +30,11 @@ Your exercise is graded automatically once you have completed the instructions. 
 - issues
  -->
 
-Below is an example of an incorrect solution and the feedback provided in the **Grading results:**
-
-![image](https://user-images.githubusercontent.com/38021615/128258382-b4a79384-ce2d-4377-ae53-e37f8ca2c1a3.png)
-
 See _[Viewing workflow run history]_ if you need assistance.
 
 ## Troubleshooting
 
 If you are stuck with a step in the exercise or the grading workflow does not automatically run after you complete the instructions, run the troubleshooter: in the **Actions** tab select the **Grading workflow**, click **Run workflow**, select the appropriate branch, and click the **Run workflow** button.
-
-![image](https://user-images.githubusercontent.com/38021615/128258382-b4a79384-ce2d-4377-ae53-e37f8ca2c1a3.png)
 
 The troubleshooter will either display useful information to help you understand what you might have done wrong in your exercise or redirect you to the documentation relevant to your exercise to help you out.
 
@@ -56,7 +48,8 @@ Resources specific to this exercise:
 
 <!-- - Add further resources for the learner -->
 
-- [Removing sensitive data from a repository] - GitHub Docs
+- [_Connecting a repository to a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)
+- [_Publishing a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/publishing-a-package)
 
 Resources for working with exercises and GitHub Actions in general:
 
