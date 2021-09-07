@@ -1,4 +1,4 @@
-# Welcome to the exercise-publish-package exercise!
+# Welcome to the exercise on publishing packages!
 
 This exercise checks your ability to publish packages to GitHub Packages. It is automatically graded via a workflow once you have completed the instructions.
 
