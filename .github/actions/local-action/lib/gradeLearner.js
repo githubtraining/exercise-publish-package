@@ -1,55 +1,18 @@
-const github = require("@actions/github");
 const core = require("@actions/core");
-const { spawnSync } = require("child_process");
 
 module.exports = async () => {
-  const { owner } = github.context.repo;
   const eventContext = core.getInput("event_ctx");
   const eventContextJSON = JSON.parse(eventContext);
-  const packageURL = eventContextJSON.package.package_version.source_url;
-  const packageName = eventContextJSON.package.name;
-  const packageVersion = eventContextJSON.package.package_version.version;
+  const eventAction = eventContextJSON.action;
+
+  const packageName = eventContextJSON.registry_package.name;
+  const packageVersion =
+    eventContextJSON.registry_package.package_version.version;
+  const packageNameSpace = eventContextJSON.registry_package.namespace;
 
   try {
-    let result;
-
-    switch (eventContextJSON.package.package_type) {
-      case "npm":
-        result = spawnSync(
-          "npm",
-          ["install", `${owner}/${packageName}@${packageVersion}`],
-          { cwd: dir }
-        );
-        break;
-      case "rubygems":
-        result = spawnSync(
-          "gem",
-          ["install", packageName, `--source ${packageURL}`],
-          { cwd: dir }
-        );
-        break;
-      case "docker":
-      case "container":
-        result = spawnSync("docker", ["pull", packageURL], {
-          cwd: dir,
-        });
-      // case "maven":
-      //   result = spawnSync("some",["maven","magic"]);
-      //   break;
-      // case "nuget":
-      //   result = spawnSync(
-      //     "dotnet",
-      //     ["add", "package", `${packageName}`, `-s ${packageURL}`],
-      //     { cwd: dir }
-      //   );
-      //   break;
-      default:
-        throw new Error(
-          `Unsupported package type: ${eventContextJSON.package.package_type}`
-        );
-    }
-
-    if (result.status == 0) {
+    // GOOD-RESULT
+    if (eventAction === "published") {
       return {
         reports: [
           {
@@ -57,7 +20,7 @@ module.exports = async () => {
             isCorrect: true,
             display_type: "actions",
             level: "info",
-            msg: "Great job!",
+            msg: `Great Job!  You can have successfully published the ${packageName} package to the ${packageNameSpace} with a version of ${packageVersion}`,
             error: {
               expected: "",
               got: "",
@@ -76,9 +39,13 @@ module.exports = async () => {
             level: "warning",
             msg: `incorrect solution`,
             error: {
-              expected:
-                "We expected successful access to your package using the peroper CLI tool.",
-              got: `${result.stderr.toString()}`,
+              expected: "We expected a successfully publised packge.",
+              got: `${JSON.stringify({
+                publish_status: eventAction,
+                package_name: packageName,
+                package_version: packageVersion,
+                package_namespace: packageNameSpace,
+              })}`,
             },
           },
         ],
@@ -88,7 +55,7 @@ module.exports = async () => {
     return {
       reports: [
         {
-          filename: filename,
+          filename: "",
           isCorrect: false,
           display_type: "actions",
           level: "fatal",
