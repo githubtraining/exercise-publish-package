@@ -1,6 +1,6 @@
 # Welcome to the exercise on publishing packages!
 
-This exercise checks your ability to publish packages to GitHub Packages. It is automatically graded via a workflow once you have completed the instructions.
+This exercise checks your ability to publish to a GitHub Packages registry. It is automatically graded via a workflow once you have completed the instructions.
 
 ## About this exercise
 
@@ -17,7 +17,7 @@ This exercise checks your ability to publish packages to GitHub Packages. It is 
 Please complete the instructions below:
 
 1. Create your own copy of this repository by using the [Use this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) button.
-2. Publish a package of your choice. Ensure the package is associated with this repository. 
+2. Publish a package of your choice. Ensure the package is associated with this repository. Starter packages can be found in [`sample-packages`](sample-packages/) but may need to be configured further to complete this exercise. 
 
 <!-- Add your steps below starting with step 2 -->
 
@@ -48,6 +48,7 @@ Resources specific to this exercise:
 
 <!-- - Add further resources for the learner -->
 
+- [_Working with a GitHub Packages registry_ in GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry)]
 - [_Connecting a repository to a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)
 - [_Publishing a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/publishing-a-package)
 
@@ -62,3 +63,4 @@ Links used throughout this README:
 
 [removing sensitive data from a repository]: https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
 [creating a repository from a template]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
+[Running a workflow on GitHub]: https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow-on-github
