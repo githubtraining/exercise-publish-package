@@ -6,7 +6,7 @@ This exercise checks your ability to publish to a GitHub Packages registry. It i
 
 :warning: A grading script exists under `.github/workflows/grading.yml`. You do not need to use this workflow for any purpose and **altering its contents will affect the repository's ability to assess your exercise and give feedback.**
 
-:warning: This exercise utilizes [GitHub Actions](https://docs.github.com/en/actions), which is free for public repositories and self-hosted runners, but may incur charges on private repositories. See _[About billing for GitHub Actions]_ to learn more.
+:warning: This exercise utilizes [GitHub Actions](https://docs.github.com/en/actions), which is free for public repositories and self-hosted runners, but may incur charges on private repositories. See [About billing for GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions) to learn more.
 
 :information_source: The use of GitHub Actions also means that it may take the grading workflow a few seconds and sometimes minutes to run.
 
@@ -30,7 +30,7 @@ Your exercise is graded automatically once you have completed the instructions. 
 - issues
  -->
 
-See _[Viewing workflow run history]_ if you need assistance.
+See [Viewing workflow run history](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history) if you need assistance.
 
 ## Troubleshooting
 
@@ -38,7 +38,7 @@ If you are stuck with a step in the exercise or the grading workflow does not au
 
 The troubleshooter will either display useful information to help you understand what you might have done wrong in your exercise or redirect you to the documentation relevant to your exercise to help you out.
 
-See _[Running a workflow on GitHub]_ if you need assistance.
+See [Running a workflow on GitHub](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow) if you need assistance.
 
 ## Useful resources
 
@@ -48,19 +48,10 @@ Resources specific to this exercise:
 
 <!-- - Add further resources for the learner -->
 
-- [_Working with a GitHub Packages registry_ in GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry)]
-- [_Connecting a repository to a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)
-- [_Publishing a package_ in GitHub Docs](https://docs.github.com/en/packages/learn-github-packages/publishing-a-package)
+- [Working with a GitHub Packages registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry)]
+- [Connecting a repository to a package](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)
+- [Publishing a package](https://docs.github.com/en/packages/learn-github-packages/publishing-a-package)
 
 Resources for working with exercises and GitHub Actions in general:
 
-- [Creating a repository from a template]
-
-<!--
-Links used throughout this README:
--->
-<!-- Edit the links below to be relevant -->
-
-[removing sensitive data from a repository]: https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository
-[creating a repository from a template]: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
-[Running a workflow on GitHub]: https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow-on-github
+- [Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
