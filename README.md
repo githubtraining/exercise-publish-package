@@ -48,7 +48,7 @@ Resources specific to this exercise:
 
 <!-- - Add further resources for the learner -->
 
-- [Working with a GitHub Packages registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry)]
+- [Working with a GitHub Packages registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry)
 - [Connecting a repository to a package](https://docs.github.com/en/packages/learn-github-packages/connecting-a-repository-to-a-package)
 - [Publishing a package](https://docs.github.com/en/packages/learn-github-packages/publishing-a-package)
 
