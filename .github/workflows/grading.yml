@@ -28,4 +28,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: troubleshooting steps
-        run: echo "" #Help the user to troubleshoot the activity
+        run: echo "Help the user to troubleshoot" 
