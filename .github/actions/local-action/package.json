@@ -1,7 +1,7 @@
 {
   "name": "local-action",
   "version": "1.0.0",
-  "description": "Local exercise action to verify the desire commit was removed",
+  "description": "Local exercise action to verify the desired commit was removed",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
