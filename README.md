@@ -4,7 +4,7 @@ This exercise checks your ability to publish to a GitHub Packages registry. It i
 
 ## About this exercise
 
-:warning: A grading script exists under `.github/workflows/grading.yml`. You do not need to use this workflow for any purpose and **altering its contents will affect the repository's ability to assess your exercise and give feedback.**
+:warning: This exercise uses a grading workflow script `.github/workflows/grading.yml`. You do not need to run or change this script - **altering its contents will affect the repository's ability to assess your exercise and give feedback.**
 
 :warning: This exercise utilizes [GitHub Actions](https://docs.github.com/en/actions), which is free for public repositories and self-hosted runners, but may incur charges on private repositories. See [About billing for GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions) to learn more.
 
@@ -16,8 +16,8 @@ This exercise checks your ability to publish to a GitHub Packages registry. It i
 
 Please complete the instructions below:
 
-1. Create your own copy of this repository by using the [Use this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) button.
-2. Publish a package of your choice. Ensure the package is associated with this repository. Starter packages can be found in [`sample-packages`](sample-packages/) but may need to be configured further to complete this exercise. 
+1. Create your own copy of this repository by using the [Use this template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template) button above.
+2. Publish a package of your choice. Ensure the package is associated with this repository. Starter packages are in [`sample-packages`](sample-packages/) but may need to be configured further to complete this exercise. 
 
 <!-- Add your steps below starting with step 2 -->
 
